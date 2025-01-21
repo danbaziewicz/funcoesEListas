@@ -1,5 +1,8 @@
+let listaDeNumerosSorteados = [];
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
+let 
 
 function exibirTextoNaTela(tag, texto){ //função para exibição de texto, espera por uma tag (h1, p, etc.) e um texto para ser repassado.
 
@@ -37,7 +40,19 @@ function verificarChute(){
 }
 
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+    let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length;
+
+    if(quantidadeDeElementosNaLista == numeroLimite) {
+        listaDeNumerosSorteados = [];
+    }
+
+    if (listaDeNumerosSorteados.includes(numeroEscolhido)) { //verifica se o numero sorteado já está na lista de numeros escolhidos anteriormente.
+        gerarNumeroAleatorio();
+    } else {
+        listaDeNumerosSorteados.push(numeroEscolhido) //adicionando o numero escolhido (aleatório) dentro do array através do push.
+        return numeroEscolhido;
+    }
 }
 
 function limparCampo() {

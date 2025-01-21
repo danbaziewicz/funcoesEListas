@@ -8,8 +8,13 @@ function exibirTextoNaTela(tag, texto){ //função para exibição de texto, esp
     //innerHTML está sendo necessário para fazer a inserção dessas informações na tag
 }
 
-exibirTextoNaTela('h1', 'Jogo do número secreto'); //texto exibido na tag h1
-exibirTextoNaTela('p', 'Escolha um número entre 1 e 10'); //texto exibido na tag p
+function exibirMensagemInicial() {
+    exibirTextoNaTela('h1', 'Jogo do número secreto'); //texto exibido na tag h1
+    exibirTextoNaTela('p', 'Escolha um número entre 1 e 10'); //texto exibido na tag p
+}
+
+exibirMensagemInicial();
+
 
 function verificarChute(){
     let chute = document.querySelector('input').value
@@ -38,4 +43,12 @@ function gerarNumeroAleatorio() {
 function limparCampo() {
     chute = document.querySelector('input');
     chute.value = '';
+}
+
+function reiniciarJogo() {
+    numeroSecreto = gerarNumeroAleatorio();
+    limparCampo();
+    tentativas = 1;
+    exibirMensagemInicial();
+    document.getElementById('reiniciar').setAttribute('disabled', true);
 }

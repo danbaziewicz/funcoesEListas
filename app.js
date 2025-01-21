@@ -2,13 +2,13 @@ let listaDeNumerosSorteados = [];
 let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
-let 
 
 function exibirTextoNaTela(tag, texto){ //função para exibição de texto, espera por uma tag (h1, p, etc.) e um texto para ser repassado.
 
     let campo = document.querySelector(tag); //recebe e informa a tag (h1, p...)
     campo.innerHTML = texto; //adiconado o texto recebido pela função na tag que foi repassada, seria mesma coisa que: h1 = 'olá mundo'
     //innerHTML está sendo necessário para fazer a inserção dessas informações na tag
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
 }
 
 function exibirMensagemInicial() {
